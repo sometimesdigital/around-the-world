@@ -22,25 +22,19 @@ let Earth = () => (
 
 let Footer = () => (
   <footer>
-    <div>
-      developed by @halfelfnomad
-    </div>
 
     <div>
-      <a href="https://twitter.com/halfelfnomad" title="twitter">
+      <a href="https://twitter.com/halfelfnomad" title="Find me on Twitter">
         <div data-icon="ei-sc-twitter" data-size="s"></div>
       </a>
-      <a href="https://github.com/tusindfryd" title="github">
-        <div data-icon="ei-sc-github" data-size="s"></div>
+      <a href="https://tusindfryd.github.io" title="Blog">
+        <div data-icon="ei-pencil" data-size="s"></div>
+      </a>
+      <a title="Earth animation by The MP via Wikimedia Commons (CC BY)">
+        <div data-icon="ei-tag" data-size="s"></div>
       </a>
     </div>
-
-    <div>
-      animation by&nbsp;
-    <a href="https://commons.wikimedia.org/wiki/File:Rotating_earth_(huge).gif"
-        title="via Wikimedia Commons">The MP</a>/
-    <a href="https://creativecommons.org/licenses/by/3.0">CC BY</a>
-    </div>
+    
     <div>
       <a href="https://www.spotify.com/account/apps/">revoking account permissions</a>
     </div>
