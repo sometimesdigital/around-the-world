@@ -292,7 +292,7 @@ function App() {
 
   let Info = () => {
     if (error) {
-      return (<span>An error occcured: the maximum number of daily users has been exceeded.</span>)
+      return (<span>An error occurred: the maximum number of daily users has been exceeded.</span>)
     }
     else if (playlist) {
       let twitterLink = `https://twitter.com/intent/tweet?url=${playlist.external_urls.spotify}`
