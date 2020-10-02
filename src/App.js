@@ -177,9 +177,6 @@ function App() {
           trackList.push(chosenSong);
         }
       })
-      .catch((error) => {
-        setToken(null);
-      });;
 
   }
 
@@ -252,7 +249,7 @@ function App() {
     })
       .then(response => response.json())
       .then((result => {
-        fetch("https:/api.spotify.com/v1/playlists/" + result.id + "/tracks", {
+        fetch("https://api.spotify.com/v1/playlists/" + result.id + "/tracks", {
           method: 'POST',
           mode: 'cors',
           cache: 'no-cache',
@@ -283,9 +280,6 @@ function App() {
             .then(result => { setPlaylist(result.items[0]) })
           )
       }))
-      .catch((error) => {
-        setToken(null);
-      });
     setLoadingPlaylist(false)
   };
 
@@ -316,7 +310,6 @@ function App() {
 
   if (token) {
     if (!userData) {
-      console.log("uhuh")
       fetchUserData();
       fetchGenres();
     }
@@ -358,7 +351,7 @@ function App() {
         </div>
         <div className="info">
           <SpotifyAuth
-            redirectUri='https://tusindfryd.github.io/around-the-world/callback'
+            redirectUri='https://tusindfryd.github.io/around-the-world'
             clientID='63d690649f2c4b548c9509f8ebda8e7f'
             scopes={[
               'user-top-read',
