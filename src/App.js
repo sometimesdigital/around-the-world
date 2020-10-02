@@ -175,7 +175,9 @@ function App() {
       .then((result) => {
         if (result.tracks.items.length > 0) {
           let chosenSong = result.tracks.items[0];
-          trackList.push(chosenSong);
+          if (!trackList.includes(chosenSong)) {
+            trackList.push(chosenSong);
+          }
         }
       })
 
