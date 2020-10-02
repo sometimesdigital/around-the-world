@@ -1,4 +1,14 @@
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
 body {
+  animation: fadeIn 0.3s ease-in;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,6 +49,11 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 10px;
+}
+
+footer a {
+  display: inline-block;
+  color: #191414;
 }
 
 iframe {

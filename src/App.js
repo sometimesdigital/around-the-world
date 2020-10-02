@@ -17,29 +17,38 @@ let Header = () => (
 )
 
 let Earth = () => (
-  <img className="earth" src="earth.png"></img>
+  <img className="earth" src="earth.png" title="Animation of the Earth"></img>
 );
 
-let Footer = () => (
-  <footer>
+let Footer = () => {
+  const [showCredit, setShowCredit] = useState(false);
+  return (
+    <footer>
 
-    <div>
-      <a href="https://twitter.com/halfelfnomad" title="Find me on Twitter">
-        <div data-icon="ei-sc-twitter" data-size="s"></div>
-      </a>
-      <a href="https://tusindfryd.github.io" title="Blog">
-        <div data-icon="ei-pencil" data-size="s"></div>
-      </a>
-      <a title="Earth animation by The MP via Wikimedia Commons (CC BY)">
-        <div data-icon="ei-tag" data-size="s"></div>
-      </a>
-    </div>
-    
-    <div>
-      <a href="https://www.spotify.com/account/apps/">revoking account permissions</a>
-    </div>
-  </footer>
-)
+      <div>
+        <a href="https://twitter.com/halfelfnomad" title="Find me on Twitter">
+          <div data-icon="ei-sc-twitter" data-size="s"></div>
+        </a>
+        <a href="https://tusindfryd.github.io" title="Blog">
+          <div data-icon="ei-pencil" data-size="s"></div>
+        </a>
+        <a href="#" onClick={() => showCredit ? setShowCredit(false) : setShowCredit(true)} title="Credit">
+          <div data-icon="ei-tag" data-size="s"></div>
+        </a>
+      </div>
+
+      <div style={{ visibility: showCredit ? "visible" : "hidden" }}>
+        Earth animation by&nbsp;
+        <a href="https://commons.wikimedia.org/wiki/File:Rotating_earth_(huge).gif"
+          title="via Wikimedia Commons">The MP</a>/
+        <a href="https://creativecommons.org/licenses/by/3.0">CC BY</a>
+      </div>
+      <div>
+        <a href="https://www.spotify.com/account/apps/">revoking account permissions</a>
+      </div>
+    </footer>
+  )
+}
 
 
 function App() {
