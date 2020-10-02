@@ -56,6 +56,7 @@ function App() {
   const [playlist, setPlaylist] = useState("");
   const [searchedCountryString, setSearchedCountryString] = useState("");
   const [searchedGenreString, setSearchedGenreString] = useState("");
+  const [error, setError] = useState(false);
   let trackList = [];
   let playlistUris = [];
 
@@ -181,7 +182,7 @@ function App() {
   }
 
   let callMusixMatch = async () => {
-    while (trackList.length < 8) {
+    while (trackList.length < 8 && !error) {
       let randomCountryIndex = ~~(Math.random() * countries.length);
       let searchedCountry = Object.values(countries[randomCountryIndex])[0];
       setSearchedCountryString(Object.keys(countries[randomCountryIndex])[0])
@@ -218,7 +219,8 @@ function App() {
               searchOnSpotify(chosenSong.track_name);
             }
           }
-        }
+        },
+        error: () => { setError(true) }
       })
       await new Promise((r) => setTimeout(r, 500));
     }
@@ -289,7 +291,10 @@ function App() {
   }
 
   let Info = () => {
-    if (playlist) {
+    if (error) {
+      return (<span>An error occcured: the maximum number of daily users has been exceeded.</span>)
+    }
+    else if (playlist) {
       let twitterLink = `https://twitter.com/intent/tweet?url=${playlist.external_urls.spotify}`
       return (
         <>
@@ -318,7 +323,7 @@ function App() {
         <div className="container">
           <Header />
           <div className="mainView">
-            {playlist ?
+            {playlist && !error ?
               <PlayWidget
                 width={480}
                 height={480}
@@ -327,7 +332,7 @@ function App() {
               /> : <Earth />}
           </div>
           <div className="info">
-            {loadingPlaylist || playlist ?
+            {error || loadingPlaylist || playlist ?
               <Info /> :
               <button
                 className="generatePlaylistButton"
