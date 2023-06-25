@@ -29,7 +29,7 @@ let Footer = () => {
         <a href="https://twitter.com/halfelfnomad" title="Find me on Twitter">
           <div data-icon="ei-sc-twitter" data-size="s"></div>
         </a>
-        <a href="https://tusindfryd.github.io" title="Blog">
+        <a href="https://nonnullish.github.io" title="Blog">
           <div data-icon="ei-pencil" data-size="s"></div>
         </a>
         <a href="#" onClick={() => showCredit ? setShowCredit(false) : setShowCredit(true)} title="Credit">
@@ -361,7 +361,7 @@ function App() {
         </div>
         <div className="info">
           <SpotifyAuth
-            redirectUri='https://tusindfryd.github.io/around-the-world'
+            redirectUri='https://nonnullish.github.io/around-the-world'
             clientID='63d690649f2c4b548c9509f8ebda8e7f'
             scopes={[
               'user-top-read',
