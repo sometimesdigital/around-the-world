@@ -1,0 +1,51 @@
+@media(orientation: portrait) {
+  .view-playlist {
+    flex-direction: column-reverse;
+    gap: 16px;
+
+    .cover {
+      width: 66%;
+    }
+  }
+}
+
+@media(orientation: landscape) {
+  .view-playlist {
+    flex-direction: row;
+    gap: 5%;
+
+    .cover {
+      width: 50%;
+    }
+  }
+}
+
+.view-playlist {
+  display: flex;
+  margin: 0 2.5%;
+  align-items: center;
+  transition: opacity 0.25s;
+
+  .cover {
+    margin: auto;
+    aspect-ratio: 1;
+    min-width: 0;
+
+    img {
+      display: block;
+      width: 100%;
+      border-radius: 8px;
+      transition: scale 0.2s;
+
+      &:hover {
+        scale: 1.05;
+      }
+    }
+
+    a:focus-visible {
+      img {
+        scale: 1.05;
+      }
+    }
+  }
+}
