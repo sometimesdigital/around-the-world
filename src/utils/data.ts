@@ -28,14 +28,17 @@ export const getFavoriteGenres = async (): Promise<string[]> => {
     onError: () => toast.error("Error: Couldn't get the favorite artists"),
   });
 
-  const genres = data.items.flatMap(({ genres }: { genres: string[] }) => genres);
+  const userGenres = data.items.flatMap(({ genres }: { genres: string[] }) => genres);
 
-  if (genres.length === 0) {
+  if (userGenres.length === 0) {
     toast.error("Error: It appears you haven't listened to enough music recently to determine any favorites.");
     return [];
   }
 
-  return [...new Set(sortByOccurrence(genres))].slice(0, 10);
+  const sortedGenres = [...new Set(sortByOccurrence(userGenres))];
+  const filteredGenres = genres.filter(({ name }) => sortedGenres.includes(name));
+
+  return filteredGenres.slice(0, 10).map(({ name }) => name);
 };
 
 const findOnSpotify = async (track: string) => {
@@ -62,7 +65,7 @@ export async function* getSongs(userGenres: string[]) {
 
   while (songs.length < 8) {
     const language = languages[Math.floor(Math.random() * languages.length)];
-    const genre = filteredGenres[Math.floor(Math.random() * filteredGenres.length)];
+    const genre = filteredGenres[Math.floor(Math.random() * filteredGenres.length)] ?? genres[0];
     const url = "https://api.musixmatch.com/ws/1.1/track.search";
     const query = {
       f_music_genre_id: genre.id.toString(),

@@ -1,35 +1,16 @@
-@media(orientation: portrait) {
-  .view-playlist {
-    flex-direction: column-reverse;
-    gap: 16px;
-
-    .cover {
-      width: 66%;
-    }
-  }
-}
-
-@media(orientation: landscape) {
-  .view-playlist {
-    flex-direction: row;
-    gap: 5%;
-
-    .cover {
-      width: 50%;
-    }
-  }
-}
-
 .view-playlist {
-  display: flex;
-  margin: 0 2.5%;
   align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  margin: 0 2.5%;
   transition: opacity 0.25s;
 
   .cover {
     margin: auto;
     aspect-ratio: 1;
     min-width: 0;
+    width: 50%;
 
     img {
       display: block;

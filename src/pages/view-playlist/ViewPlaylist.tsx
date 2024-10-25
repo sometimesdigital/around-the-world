@@ -42,7 +42,7 @@ export const ViewPlaylist = () => {
         </a>
       </div>
       <article>
-        <p>{genres.join(" ⯌ ")}</p>
+        <p>{genres.join(" ✦ ")}</p>
         <p>
           <i>
             in {languages.slice(0, -1).join(", ")}
